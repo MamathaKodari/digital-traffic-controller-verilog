@@ -1,0 +1,30 @@
+module traffic_tb;
+reg clk,rst;
+wire [2:0]M1;
+wire [2:0]ST;
+wire [2:0]MT;
+wire [2:0]M2;
+wire [3:0]count;
+wire [2:0]present_state;
+traffic dut(.clk(clk) , .rst(rst) , .M1(M1) , .ST(ST)  ,.M2(M2),.MT(MT) ,.count(count) ,.present_state(present_state));
+initial
+begin
+    clk=1'b0;
+    forever #(10/2) clk=~clk;
+end
+//    initial
+//    $stop;//to add ps
+initial
+begin
+    
+    rst=1;
+    #10;
+    rst=0;
+    #(1000*200);
+    $finish;
+    end
+
+
+
+
+endmodule
